@@ -171,6 +171,8 @@ curl -X POST https://api.dbify.com/query \
 
 <img width="1854" height="936" alt="docs1" src="https://github.com/user-attachments/assets/a61b8bc1-f568-453b-ae06-bb8852ab6fa4" />
 <img width="1552" height="822" alt="docs2" src="https://github.com/user-attachments/assets/223e953b-a000-4d48-b28b-aaf18e21112a" />
+
+<img width="1080" height="573" alt="image" src="https://github.com/user-attachments/assets/5e5b9e86-05f1-4170-99f8-7bee74721169" />
 <img width="1538" height="939" alt="docs3" src="https://github.com/user-attachments/assets/496b53e7-6f19-4989-b9d6-4d456e7968b0" />
 
 <img width="1843" height="928" alt="image" src="https://github.com/user-attachments/assets/37a9aeba-94b7-4847-8edd-5d9b6c0969a6" />
