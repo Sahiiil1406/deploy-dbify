@@ -59,6 +59,13 @@ const visualizeSchema = async (req, res) => {
     console.log(project);
     let schema = await getKey(`project:${project.dbUrl}`);
     console.log("Fetched schema from Redis:", schema);
+    if(!schema){
+      console.log(project.dbUrl);
+      const db = await getDbConnection(project.dbUrl);
+      schema=await extractDatabaseSchema(db);
+      console.log("Extracted Schema:",schema);
+      await setKey(`project:${project.dbUrl}`, schema);
+    }
 
     const { nodes, edges } = generateCytoscapeElements(schema);
     console.log(nodes);

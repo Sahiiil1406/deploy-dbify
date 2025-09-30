@@ -2,7 +2,7 @@ const amqp = require('amqplib');
 require('dotenv').config();
 
 const RABBITMQ_URL = process.env.RABBITMQ_URL || 'amqp://localhost:5672';
-const TASK_QUEUE = process.env.RABBITMQ_TASK_QUEUE || 'tasks';
+const TASK_QUEUE = process.env.RABBITMQ_TASK_QUEUE || 'task_queue';
 
 let connection;
 let channel;
@@ -43,7 +43,7 @@ const pushToTaskQueue = async (message) => {
 
 
   channel.sendToQueue(TASK_QUEUE, Buffer.from(JSON.stringify(message)), { persistent: true });
-  //console.log('📤 Message sent to task queue:', message);
+  console.log('📤 Message sent to task queue:', message);
 };
 
 module.exports = {

@@ -94,10 +94,13 @@ const getDocs=async(req,res)=>{
         //   const schema=await 
         // }
           
-        let schema=await getKey(`project:${project.dbUrl}`);
+        // let schema=await getKey(`project:${project.dbUrl}`);
+        // console.log("Cached Schema:",schema);
+        let schema=null
         if(!schema){
-            const db= getDbConnection(project.dbUrl);
+            const db=await getDbConnection(project.dbUrl);
             schema=await extractDatabaseSchema(db);
+            console.log("Extracted Schema:",schema);
             await setKey(`project:${project.dbUrl}`, schema);
         }
         // Generate documentation from schema

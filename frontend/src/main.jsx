@@ -13,7 +13,7 @@ import DocsPage from './pages/Docs.jsx';
 import Visualize from './pages/Visualize.jsx';
 import ChatInterface from './pages/AI.jsx';
 import Navbar from './components/Navbar.jsx';
-const convex = new ConvexReactClient("https://academic-albatross-125.convex.cloud")
+const convex = new ConvexReactClient("http://127.0.0.1:3210")
 const router = createBrowserRouter([
   {
     path: "/",
