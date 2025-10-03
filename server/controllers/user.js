@@ -54,12 +54,13 @@ const signIn = async (req, res) => {
     const token = jwt.sign(payload, process.env.JWT_SECRET, {
       expiresIn: "1h",
     });
-    res.cookie("token", token, {
-      httpOnly: true,
-      secure: false,
-      sameSite: "Lax",
-    });
-
+    //production cookie settings
+   res.cookie("token", token, {
+  httpOnly: true,
+  secure: true, // true only in production
+  sameSite: "None", // None for cross-site in production
+  maxAge: 7 * 24 * 60 * 60 * 1000, // optional: 1 week
+});
     //pushToTaskQueue({ event: 'user_logged_in', userId: user.id });
     res.status(200).json({ token });
   } catch (error) {

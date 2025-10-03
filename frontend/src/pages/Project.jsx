@@ -15,6 +15,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell, Area, AreaChart } from "recharts";
 import { Activity, AlertCircle, CheckCircle2, Clock, Database, TrendingUp, RefreshCw, Zap, Eye } from "lucide-react";
 
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5000';
 const Project = () => {
   const { projectId } = useParams();
   const [project, setProject] = useState(null);
@@ -29,8 +30,8 @@ const Project = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `http://localhost:5000/api/projects/${projectId}`,
-        { withCredentials: true }
+        `${BACKEND_URL}/${projectId}`,
+        { withCredentials: true } 
       );
       setProject(data);
       setError(null);
