@@ -11,9 +11,10 @@ const crudRoutes = require('./routes/crud.routes.js');
 const docsRoutes = require('./routes/docs.routes.js');
 const loggerMiddleware = require('./middleware/logger.middleware.js');
 const prisma = new PrismaClient();
+const { ConvexHttpClient } = require("convex/browser");
 
 const app = express();
-
+const convex = new ConvexHttpClient(process.env.CONVEX_URL);
 // Basic middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -40,8 +41,8 @@ app.use('/api/docs', docsRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-  connectRedis()
-  connectRabbitMQ()
+  //connectRedis()
+  //connectRabbitMQ()
   console.log(`Server is running on port ${PORT}`);
 });
 

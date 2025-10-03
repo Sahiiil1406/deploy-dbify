@@ -13,7 +13,7 @@ import DocsPage from './pages/Docs.jsx';
 import Visualize from './pages/Visualize.jsx';
 import ChatInterface from './pages/AI.jsx';
 import Navbar from './components/Navbar.jsx';
-const convex = new ConvexReactClient("http://127.0.0.1:3210")
+const convex = new ConvexReactClient(import.meta.env.VITE_CONVEX_URL);
 const router = createBrowserRouter([
   {
     path: "/",

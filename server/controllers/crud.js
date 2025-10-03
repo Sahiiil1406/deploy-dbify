@@ -19,11 +19,12 @@ const mainDBFunc=async(req,res)=>{
     }
     const dbUrl=project.dbUrl;
     const db=await getDbConnection(dbUrl);
-    let schema=await getKey(`project:${project.dbUrl}`);
+    let schema=null
+    //let schema=await getKey(`project:${project.dbUrl}`);
     //console.log("Fetched schema from Redis:", schema);
     if(!schema){
         schema=await extractDatabaseSchema(db);
-        await setKey(`project:${project.dbUrl}`, schema);
+        //await setKey(`project:${project.dbUrl}`, schema);
     }
     // console.log(...schema);
     const CRUD=new DatabaseCRUD(db,schema);

@@ -188,10 +188,10 @@ const sendEmail = async ({ to, subject, html }) => {
   return data;
 };
 
-sendEmail({
-  to: "sahilkumar.231cs252@nitk.edu.in",
-  subject: "Welcome to Dbify!",
-  html: "welcome"
-});
+// sendEmail({
+//   to: "sahilkumar.231cs252@nitk.edu.in",
+//   subject: "Welcome to Dbify!",
+//   html: "welcome"
+// });
 
 module.exports = { sendEmail };

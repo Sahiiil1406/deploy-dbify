@@ -170,6 +170,8 @@ const extractDatabaseSchema = async (db) => {
       };
     }
 
+    console.log("Inside extractDatabaseSchema:", schema);
+
     return {
       tables,
       schema,

@@ -93,15 +93,16 @@ const getDocs=async(req,res)=>{
         // if(project.dbType=="mongodb"){
         //   const schema=await 
         // }
-          
+         // console.log("Project DB URL:",project);
         // let schema=await getKey(`project:${project.dbUrl}`);
         // console.log("Cached Schema:",schema);
         let schema=null
         if(!schema){
             const db=await getDbConnection(project.dbUrl);
+            //console.log("Project DB Connection:",db);
             schema=await extractDatabaseSchema(db);
             console.log("Extracted Schema:",schema);
-            await setKey(`project:${project.dbUrl}`, schema);
+            //await setKey(`project:${project.dbUrl}`, schema);
         }
         // Generate documentation from schema
          console.log("Schema:",schema);
