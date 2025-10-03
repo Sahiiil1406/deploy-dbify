@@ -11,7 +11,7 @@ const signUp = async (req, res) => {
 
   try {
     const hashedPassword = await brcypt.hash(password, 10);
-
+    console.log(hashedPassword);
     const user = await prisma.user.create({
       data: {
         email,
@@ -19,10 +19,11 @@ const signUp = async (req, res) => {
         name,
       },
     });
+    console.log(user);
 
     res.status(201).json(user);
   } catch (error) {
-    logger.error("Error during user registration", { error: error.message });
+    //logger.error("Error during user registration", { error: error.message });
     res.status(500).json({ error: "User creation failed" });
   }
 };
@@ -55,12 +56,12 @@ const signIn = async (req, res) => {
       expiresIn: "1h",
     });
     //production cookie settings
-   res.cookie("token", token, {
-  httpOnly: true,
-  secure: true, // true only in production
-  sameSite: "None", // None for cross-site in production
-  maxAge: 7 * 24 * 60 * 60 * 1000, // optional: 1 week
-});
+    res.cookie("token", token, {
+      httpOnly: true,
+      secure: true, // true only in production
+      sameSite: "None", // None for cross-site in production
+      maxAge: 7 * 24 * 60 * 60 * 1000, // optional: 1 week
+    });
     //pushToTaskQueue({ event: 'user_logged_in', userId: user.id });
     res.status(200).json({ token });
   } catch (error) {
