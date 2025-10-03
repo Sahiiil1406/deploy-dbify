@@ -384,7 +384,7 @@ const App = () => {
                     onClick={() => setActiveTab(operation)}
                     className={`px-4 py-3 font-medium capitalize transition-all text-sm rounded-lg ${
                       activeTab === operation
-                        ? 'text-white bg-yellow-400 text-black shadow-lg shadow-yellow-400/30'
+                        ? 'text-white bg-yellow-40 shadow-lg shadow-yellow-400/30'
                         : 'text-gray-400 hover:text-white hover:bg-gray-800'
                     }`}
                   >
